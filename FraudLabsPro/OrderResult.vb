@@ -1,6 +1,6 @@
 ﻿Namespace FraudLabsPro
     Public Class OrderResult
-        Friend Sub New(ByVal OrderDeserialize As OrderDeserialize)
+        Friend Sub New(ByVal OrderDeserialize As OrderResultObj)
             IsCountryMatch = OrderDeserialize.is_country_match
             IsHighRiskCountry = OrderDeserialize.is_high_risk_country
             DistanceInKM = OrderDeserialize.distance_in_km

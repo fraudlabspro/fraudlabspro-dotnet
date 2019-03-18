@@ -1,5 +1,6 @@
 ﻿Imports System.Uri
 Imports System.Security.Cryptography
+Imports Newtonsoft.Json
 
 Namespace FraudLabsPro
     'FraudLabsPro Order Class
@@ -33,7 +34,7 @@ Namespace FraudLabsPro
         'Screen an order transaction for payment fraud.
         'This REST API will detects all possibles fraud traits based on the input parameters supplied.
         'The more input parameter supplied, the higher accuracy of fraud detection.
-        Public Function ScreenOrder(ByVal para As OrderPara)
+        Public Function ScreenOrder(ByVal para As OrderPara) As OrderResult
             Try
                 Dim data As New Dictionary(Of String, String)
 
@@ -86,14 +87,9 @@ Namespace FraudLabsPro
                 Dim rawJson As String
                 rawJson = request.PostMethod(url, post)
 
-                If rawJson = "False" Then
-                    Return Nothing
-                Else
-                    Dim js As New System.Web.Script.Serialization.JavaScriptSerializer
-                    Dim DeserializedResult = js.Deserialize(Of OrderDeserialize)(rawJson)
-                    Dim OrderResult As New OrderResult(DeserializedResult)
-                    Return OrderResult
-                End If
+                Dim DeserializedResult As OrderResultObj = JsonConvert.DeserializeObject(Of OrderResultObj)(rawJson)
+                Dim OrderResult As New OrderResult(DeserializedResult)
+                Return OrderResult
             Catch ex As Exception
                 Throw New Exception
             End Try
@@ -101,7 +97,7 @@ Namespace FraudLabsPro
 
         'Feedback Order API
         'Sends decision back to FraudLabs Pro
-        Public Function FeedbackOrder(ByVal para As OrderPara)
+        Public Function FeedbackOrder(ByVal para As OrderPara) As OrderResult
             Try
                 Dim apikey As String = FraudLabsProConfig.APIKey
                 Dim format As String = para.Format
@@ -114,8 +110,8 @@ Namespace FraudLabsPro
                 Dim request As New Http
                 Dim rawJson As String
                 rawJson = request.PostMethod(url, post)
-                Dim js As New System.Web.Script.Serialization.JavaScriptSerializer
-                Dim DeserializedResult = js.Deserialize(Of OrderDeserialize)(rawJson)
+
+                Dim DeserializedResult As OrderResultObj = JsonConvert.DeserializeObject(Of OrderResultObj)(rawJson)
                 Dim OrderResult As New OrderResult(DeserializedResult)
                 Return OrderResult
             Catch ex As Exception
@@ -125,7 +121,7 @@ Namespace FraudLabsPro
 
         'GetOrderResult API
         'Function to get transaction result.
-        Public Function GetOrderResult(ByVal para As OrderPara)
+        Public Function GetOrderResult(ByVal para As OrderPara) As OrderResult
             Try
                 Dim apikey As String = FraudLabsProConfig.APIKey
                 Dim format As String = para.Format
@@ -139,8 +135,8 @@ Namespace FraudLabsPro
                 Dim request As New Http
                 Dim rawJson As String
                 rawJson = request.GetMethod(url)
-                Dim js As New System.Web.Script.Serialization.JavaScriptSerializer
-                Dim DeserializedResult = js.Deserialize(Of OrderDeserialize)(rawJson)
+
+                Dim DeserializedResult As OrderResultObj = JsonConvert.DeserializeObject(Of OrderResultObj)(rawJson)
                 Dim OrderResult As New OrderResult(DeserializedResult)
                 Return OrderResult
             Catch ex As Exception

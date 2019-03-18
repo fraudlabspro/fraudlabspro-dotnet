@@ -1,5 +1,5 @@
 ﻿Namespace FraudLabsPro
-    Friend Class OrderDeserialize
+    Public Class OrderResultObj
         Private iscountrymatch As String
         Public Property is_country_match() As String
             Get

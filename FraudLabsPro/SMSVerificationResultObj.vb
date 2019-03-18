@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 
 Namespace FraudLabsPro
-    Public Class SMSVerificationDeserialize
+    Public Class SMSVerificationResultObj
         Private smsResult As String
         Public Property result() As String
             Get
