@@ -5,6 +5,7 @@
         <version>1.0.4</version>
         <authors>FraudLabsPro.com</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <licenseUrl>https://github.com/fraudlabspro/fraudlabspro-dotnet/blob/master/LICENSE</licenseUrl>
         <description>FraudLabs Pro service screens credit card transactions for online frauds. It increases e-commerce merchant profits by reduces chargeback, improves operation efficiency and provides business intelligence. Merchants can investigate all complex, high-risk orders in a simple way by using merchant administrative interface.</description>
         <tags>fraud fraudlabspro</tags>
     </metadata>
