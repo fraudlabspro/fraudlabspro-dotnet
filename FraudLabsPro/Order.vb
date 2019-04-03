@@ -82,7 +82,7 @@ Namespace FraudLabsPro
                 Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
                 Dim post As String = datastr
                 Dim url As String
-                url = "https://api.fraudlabspro.com/v1/order/screen?"
+                url = "https://api.fraudlabspro.com/v1/order/screen"
                 Dim request As New Http
                 Dim rawJson As String
                 rawJson = request.PostMethod(url, post)
