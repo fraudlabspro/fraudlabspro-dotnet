@@ -1,7 +1,7 @@
 ﻿Namespace FraudLabsPro
     Public Class OrderResultObj
         Private iscountrymatch As String
-        Public Property is_country_match() As String
+        Public Property Is_country_match() As String
             Get
                 Return iscountrymatch
             End Get
@@ -10,7 +10,7 @@
             End Set
         End Property
         Private ishighriskcountry As String
-        Public Property is_high_risk_country() As String
+        Public Property Is_high_risk_country() As String
             Get
                 Return ishighriskcountry
             End Get
@@ -19,7 +19,7 @@
             End Set
         End Property
         Private distanceinkm As String
-        Public Property distance_in_km() As String
+        Public Property Distance_in_km() As String
             Get
                 Return distanceinkm
             End Get
@@ -28,7 +28,7 @@
             End Set
         End Property
         Private distanceinmile As String
-        Public Property distance_in_mile() As String
+        Public Property Distance_in_mile() As String
             Get
                 Return distanceinmile
             End Get
@@ -37,7 +37,7 @@
             End Set
         End Property
         Private ipcountry As String
-        Public Property ip_country() As String
+        Public Property IP_country() As String
             Get
                 Return ipcountry
             End Get
@@ -46,7 +46,7 @@
             End Set
         End Property
         Private ipregion As String
-        Public Property ip_region() As String
+        Public Property IP_region() As String
             Get
                 Return ipregion
             End Get
@@ -55,7 +55,7 @@
             End Set
         End Property
         Private ipcity As String
-        Public Property ip_city() As String
+        Public Property IP_city() As String
             Get
                 Return ipcity
             End Get
@@ -64,7 +64,7 @@
             End Set
         End Property
         Private ipcontinent As String
-        Public Property ip_continent() As String
+        Public Property IP_continent() As String
             Get
                 Return ipcontinent
             End Get
@@ -73,7 +73,7 @@
             End Set
         End Property
         Private iplatitude As String
-        Public Property ip_latitude() As String
+        Public Property IP_latitude() As String
             Get
                 Return iplatitude
             End Get
@@ -83,7 +83,7 @@
 
         End Property
         Private iplongtitude As String
-        Public Property ip_longitude() As String
+        Public Property IP_longitude() As String
             Get
                 Return iplongtitude
             End Get
@@ -93,7 +93,7 @@
             End Set
         End Property
         Private iptimezone As String
-        Public Property ip_timezone() As String
+        Public Property IP_timezone() As String
             Get
                 Return iptimezone
             End Get
@@ -102,7 +102,7 @@
             End Set
         End Property
         Private ipelevation As String
-        Public Property ip_elevation() As String
+        Public Property IP_elevation() As String
             Get
                 Return ipelevation
             End Get
@@ -111,7 +111,7 @@
             End Set
         End Property
         Private ipdomain As String
-        Public Property ip_domain() As String
+        Public Property IP_domain() As String
             Get
                 Return ipdomain
             End Get
@@ -120,7 +120,7 @@
             End Set
         End Property
         Private ipmobilemnc As String
-        Public Property ip_mobile_mnc() As String
+        Public Property IP_mobile_mnc() As String
             Get
                 Return ipmobilemnc
             End Get
@@ -129,7 +129,7 @@
             End Set
         End Property
         Private ipmobilemcc As String
-        Public Property ip_mobile_mcc() As String
+        Public Property IP_mobile_mcc() As String
             Get
                 Return ipmobilemcc
             End Get
@@ -138,7 +138,7 @@
             End Set
         End Property
         Private ipmobilebrand As String
-        Public Property ip_mobile_brand() As String
+        Public Property IP_mobile_brand() As String
             Get
                 Return ipmobilebrand
             End Get
@@ -148,7 +148,7 @@
             End Set
         End Property
         Private ipnetspeed As String
-        Public Property ip_netspeed() As String
+        Public Property IP_netspeed() As String
             Get
                 Return ipnetspeed
             End Get
@@ -157,7 +157,7 @@
             End Set
         End Property
         Private ipispname As String
-        Public Property ip_isp_name() As String
+        Public Property IP_isp_name() As String
             Get
                 Return ipispname
             End Get
@@ -166,7 +166,7 @@
             End Set
         End Property
         Private ipusagetype As String
-        Public Property ip_usage_type() As String
+        Public Property IP_usage_type() As String
             Get
                 Return ipusagetype
             End Get
@@ -175,7 +175,7 @@
             End Set
         End Property
         Private isfreeemail As String
-        Public Property is_free_email() As String
+        Public Property Is_free_email() As String
             Get
                 Return isfreeemail
             End Get
@@ -184,7 +184,7 @@
             End Set
         End Property
         Private isdisposalbeemail As String
-        Public Property is_disposable_email() As String
+        Public Property Is_disposable_email() As String
             Get
                 Return isdisposalbeemail
             End Get
@@ -193,7 +193,7 @@
             End Set
         End Property
         Private isnewdomainname As String
-        Public Property is_new_domain_name() As String
+        Public Property Is_new_domain_name() As String
             Get
                 Return isnewdomainname
             End Get
@@ -202,7 +202,7 @@
             End Set
         End Property
         Private isdomainexists As String
-        Public Property is_domain_exists() As String
+        Public Property Is_domain_exists() As String
             Get
                 Return isdomainexists
             End Get
@@ -211,7 +211,7 @@
             End Set
         End Property
         Private isproxyipaddress As String
-        Public Property is_proxy_ip_address() As String
+        Public Property Is_proxy_ip_address() As String
             Get
                 Return isproxyipaddress
             End Get
@@ -220,7 +220,7 @@
             End Set
         End Property
         Private isbinfound As String
-        Public Property is_bin_found() As String
+        Public Property Is_bin_found() As String
             Get
                 Return isbinfound
             End Get
@@ -229,7 +229,7 @@
             End Set
         End Property
         Private isbincountrymatch As String
-        Public Property is_bin_country_match() As String
+        Public Property Is_bin_country_match() As String
             Get
                 Return isbincountrymatch
             End Get
@@ -238,7 +238,7 @@
             End Set
         End Property
         Private isbinnamematch As String
-        Public Property is_bin_name_match() As String
+        Public Property Is_bin_name_match() As String
             Get
                 Return isbinnamematch
             End Get
@@ -247,7 +247,7 @@
             End Set
         End Property
         Private isbinphonematch As String
-        Public Property is_bin_phone_match() As String
+        Public Property Is_bin_phone_match() As String
             Get
                 Return isbinphonematch
             End Get
@@ -256,7 +256,7 @@
             End Set
         End Property
         Private isbinprepaid As String
-        Public Property is_bin_prepaid() As String
+        Public Property Is_bin_prepaid() As String
             Get
                 Return isbinprepaid
             End Get
@@ -265,7 +265,7 @@
             End Set
         End Property
         Private isaddressshipforward As String
-        Public Property is_address_ship_forward() As String
+        Public Property Is_address_ship_forward() As String
             Get
                 Return isaddressshipforward
             End Get
@@ -274,7 +274,7 @@
             End Set
         End Property
         Private isbillshipcitymatch As String
-        Public Property is_bill_ship_city_match() As String
+        Public Property Is_bill_ship_city_match() As String
             Get
                 Return isbillshipcitymatch
             End Get
@@ -283,7 +283,7 @@
             End Set
         End Property
         Private isbillshipstatematch As String
-        Public Property is_bill_ship_state_match() As String
+        Public Property Is_bill_ship_state_match() As String
             Get
                 Return isbillshipstatematch
             End Get
@@ -292,7 +292,7 @@
             End Set
         End Property
         Private isbillshipcountrymatch As String
-        Public Property is_bill_ship_country_match() As String
+        Public Property Is_bill_ship_country_match() As String
             Get
                 Return isbillshipcountrymatch
             End Get
@@ -301,7 +301,7 @@
             End Set
         End Property
         Private isbillshippostalmatch As String
-        Public Property is_bill_ship_postal_match() As String
+        Public Property Is_bill_ship_postal_match() As String
             Get
                 Return isbillshippostalmatch
             End Get
@@ -310,7 +310,7 @@
             End Set
         End Property
         Private isipblacklist As String
-        Public Property is_ip_blacklist() As String
+        Public Property Is_ip_blacklist() As String
             Get
                 Return isipblacklist
             End Get
@@ -319,7 +319,7 @@
             End Set
         End Property
         Private isemailblacklist As String
-        Public Property is_email_blacklist() As String
+        Public Property Is_email_blacklist() As String
             Get
                 Return isemailblacklist
             End Get
@@ -328,7 +328,7 @@
             End Set
         End Property
         Private iscreditcardblacklist As String
-        Public Property is_credit_card_blacklist() As String
+        Public Property Is_credit_card_blacklist() As String
             Get
                 Return iscreditcardblacklist
             End Get
@@ -337,7 +337,7 @@
             End Set
         End Property
         Private isdeviceblacklist As String
-        Public Property is_device_blacklist() As String
+        Public Property Is_device_blacklist() As String
             Get
                 Return isdeviceblacklist
             End Get
@@ -346,7 +346,7 @@
             End Set
         End Property
         Private isuserblacklist As String
-        Public Property is_user_blacklist() As String
+        Public Property Is_user_blacklist() As String
             Get
                 Return isuserblacklist
             End Get
@@ -355,7 +355,7 @@
             End Set
         End Property
         Private isshipaddressblacklist As String
-        Public Property is_ship_address_blacklist() As String
+        Public Property Is_ship_address_blacklist() As String
             Get
                 Return isshipaddressblacklist
             End Get
@@ -364,7 +364,7 @@
             End Set
         End Property
         Private isphoneblacklist As String
-        Public Property is_phone_blacklist() As String
+        Public Property Is_phone_blacklist() As String
             Get
                 Return isphoneblacklist
             End Get
@@ -373,7 +373,7 @@
             End Set
         End Property
         Private ishighriskusernamepassword As String
-        Public Property is_high_risk_username_password() As String
+        Public Property Is_high_risk_username_password() As String
             Get
                 Return ishighriskusernamepassword
             End Get
@@ -382,7 +382,7 @@
             End Set
         End Property
         Private ismalwareexploit As String
-        Public Property is_malware_exploit() As String
+        Public Property Is_malware_exploit() As String
             Get
                 Return ismalwareexploit
             End Get
@@ -391,7 +391,7 @@
             End Set
         End Property
         Private isexportcontrolledcountry As String
-        Public Property is_export_controlled_country() As String
+        Public Property Is_export_controlled_country() As String
 
             Get
                 Return isexportcontrolledcountry
@@ -401,7 +401,7 @@
             End Set
         End Property
         Private userorderid As String
-        Public Property user_order_id() As String
+        Public Property User_order_id() As String
             Get
                 Return userorderid
             End Get
@@ -410,7 +410,7 @@
             End Set
         End Property
         Private userordermemo As String
-        Public Property user_order_memo() As String
+        Public Property User_order_memo() As String
             Get
                 Return userordermemo
             End Get
@@ -419,7 +419,7 @@
             End Set
         End Property
         Private fraudlabsproscore As String
-        Public Property fraudlabspro_score() As String
+        Public Property Fraudlabspro_score() As String
             Get
                 Return fraudlabsproscore
             End Get
@@ -428,7 +428,7 @@
             End Set
         End Property
         Private fraudlabsprodistribution As String
-        Public Property fraudlabspro_distribution() As String
+        Public Property Fraudlabspro_distribution() As String
             Get
                 Return fraudlabsprodistribution
             End Get
@@ -437,7 +437,7 @@
             End Set
         End Property
         Private fraudlabsprostatus As String
-        Public Property fraudlabspro_status() As String
+        Public Property Fraudlabspro_status() As String
             Get
                 Return fraudlabsprostatus
             End Get
@@ -446,7 +446,7 @@
             End Set
         End Property
         Private fraudlabsproid As String
-        Public Property fraudlabspro_id() As String
+        Public Property Fraudlabspro_id() As String
             Get
                 Return fraudlabsproid
             End Get
@@ -455,7 +455,7 @@
             End Set
         End Property
         Private fraudlabsproversion As String
-        Public Property fraudlabspro_version() As String
+        Public Property Fraudlabspro_version() As String
             Get
                 Return fraudlabsproversion
             End Get
@@ -464,7 +464,7 @@
             End Set
         End Property
         Private fraudlabsproerrorcode As String
-        Public Property fraudlabspro_error_code() As String
+        Public Property Fraudlabspro_error_code() As String
             Get
                 Return fraudlabsproerrorcode
             End Get
@@ -473,7 +473,7 @@
             End Set
         End Property
         Private fraudlabspromessage As String
-        Public Property fraudlabspro_message() As String
+        Public Property Fraudlabspro_message() As String
             Get
                 Return fraudlabspromessage
             End Get
@@ -482,7 +482,7 @@
             End Set
         End Property
         Private fraudlabsprocredits As String
-        Public Property fraudlabspro_credits() As String
+        Public Property Fraudlabspro_credits() As String
             Get
                 Return fraudlabsprocredits
             End Get

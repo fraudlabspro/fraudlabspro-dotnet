@@ -36,48 +36,47 @@ Namespace FraudLabsPro
         'The more input parameter supplied, the higher accuracy of fraud detection.
         Public Function ScreenOrder(ByVal para As OrderPara) As OrderResult
             Try
-                Dim data As New Dictionary(Of String, String)
-
                 'Configuration Information
-                data.Add("key", FraudLabsProConfig.APIKey)
-                data.Add("format", para.Format)
-                data.Add("source", para.Source)
-                data.Add("source_version", FraudLabsProConfig.Version)
-
                 'Billing Information
-                data.Add("ip", para.IPAddress)
-                data.Add("first_name", para.FirstName)
-                data.Add("last_name", para.LastName)
-                data.Add("username_hash", Fraudlabspro_Hash(para.Username))
-                data.Add("password_hash", Fraudlabspro_Hash(para.Password))
-                data.Add("email", para.EmailAddress)
-                data.Add("email_domain", para.EmailDomain)
-                data.Add("email_hash", Fraudlabspro_Hash(para.EmailAddress))
-                data.Add("user_phone", para.UserPhone)
-                data.Add("bill_addr", para.BillAddress)
-                data.Add("bill_city", para.BillCity)
-                data.Add("bill_state", para.BillState)
-                data.Add("bill_zip_code", para.BillZIPCode)
-                data.Add("bill_country", para.BillCountry)
                 'Order Information
-                data.Add("user_order_id", para.UserOrderID)
-                data.Add("user_order_memo", para.UserOrderMemo)
-                data.Add("amount", para.Amount)
-                data.Add("quantity", para.Quantity)
-                data.Add("currency", para.Currency)
-                data.Add("department", para.Department)
-                data.Add("payment_mode", para.PaymentMode)
                 'CreditCard Information
-                data.Add("bin_no", para.BinNo)
-                data.Add("card_hash", Fraudlabspro_Hash(para.CardNumber))
-                data.Add("avs_result", para.AvsResult)
-                data.Add("cvv_result", para.CvvResult)
                 'Shipping Information
-                data.Add("ship_addr", para.ShippingAddress)
-                data.Add("ship_city", para.ShippingCity)
-                data.Add("ship_state", para.ShippingState)
-                data.Add("ship_zip_code", para.ShippingZIPCode)
-                data.Add("ship_country", para.ShippingCountry)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"key", FraudLabsProConfig.APIKey},
+                    {"format", para.Format},
+                    {"source", para.Source},
+                    {"source_version", FraudLabsProConfig.Version},
+                    {"ip", para.IPAddress},
+                    {"first_name", para.FirstName},
+                    {"last_name", para.LastName},
+                    {"username_hash", Fraudlabspro_Hash(para.Username)},
+                    {"password_hash", Fraudlabspro_Hash(para.Password)},
+                    {"email", para.EmailAddress},
+                    {"email_domain", para.EmailDomain},
+                    {"email_hash", Fraudlabspro_Hash(para.EmailAddress)},
+                    {"user_phone", para.UserPhone},
+                    {"bill_addr", para.BillAddress},
+                    {"bill_city", para.BillCity},
+                    {"bill_state", para.BillState},
+                    {"bill_zip_code", para.BillZIPCode},
+                    {"bill_country", para.BillCountry},
+                    {"user_order_id", para.UserOrderID},
+                    {"user_order_memo", para.UserOrderMemo},
+                    {"amount", para.Amount},
+                    {"quantity", para.Quantity},
+                    {"currency", para.Currency},
+                    {"department", para.Department},
+                    {"payment_mode", para.PaymentMode},
+                    {"bin_no", para.BinNo},
+                    {"card_hash", Fraudlabspro_Hash(para.CardNumber)},
+                    {"avs_result", para.AvsResult},
+                    {"cvv_result", para.CvvResult},
+                    {"ship_addr", para.ShippingAddress},
+                    {"ship_city", para.ShippingCity},
+                    {"ship_state", para.ShippingState},
+                    {"ship_zip_code", para.ShippingZIPCode},
+                    {"ship_country", para.ShippingCountry}
+                }
 
                 Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
                 Dim post As String = datastr

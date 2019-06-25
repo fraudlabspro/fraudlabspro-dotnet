@@ -1,10 +1,10 @@
 ﻿Namespace FraudLabsPro
     Public Class SMSVerificationResult
         Public Sub New(ByVal SMSVerificationDeserialize As SMSVerificationResultObj)
-            Result = SMSVerificationDeserialize.result
-            [Error] = SMSVerificationDeserialize.error
-            TransactionID = SMSVerificationDeserialize.tran_id
-            CreditsRemaining = SMSVerificationDeserialize.credits_remaining
+            Result = SMSVerificationDeserialize.Result
+            [Error] = SMSVerificationDeserialize.Error
+            TransactionID = SMSVerificationDeserialize.Tran_id
+            CreditsRemaining = SMSVerificationDeserialize.Credits_remaining
         End Sub
         Private smsResult As String
         Public Property Result() As String

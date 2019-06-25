@@ -3,7 +3,7 @@
 Namespace FraudLabsPro
     Public Class SMSVerificationResultObj
         Private smsResult As String
-        Public Property result() As String
+        Public Property Result() As String
             Get
                 Return smsResult
             End Get
@@ -12,7 +12,7 @@ Namespace FraudLabsPro
             End Set
         End Property
         Private smsError As String
-        Public Property [error]() As String
+        Public Property [Error]() As String
             Get
                 Return smsError
             End Get
@@ -21,7 +21,7 @@ Namespace FraudLabsPro
             End Set
         End Property
         Private transactionID As String
-        Public Property tran_id() As String
+        Public Property Tran_id() As String
             Get
                 Return transactionID
             End Get
@@ -30,7 +30,7 @@ Namespace FraudLabsPro
             End Set
         End Property
         Private CreditRemaining As String
-        Public Property credits_remaining() As String
+        Public Property Credits_remaining() As String
             Get
                 Return CreditRemaining
             End Get
