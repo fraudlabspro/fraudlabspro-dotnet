@@ -9,6 +9,7 @@
     <PackageTags>fraud fraudlabspro</PackageTags>
     <PackageReleaseNotes>Implement SMS OTP timeout.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
