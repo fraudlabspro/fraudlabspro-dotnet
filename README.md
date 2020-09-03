@@ -288,8 +288,9 @@ End Class
 | Property Name | Property Type | Description                                                  |
 | ------------- | :-----------: | ------------------------------------------------------------ |
 | Tel           |    string     | The recipient mobile phone number in E164 format which is a plus followed by just numbers with no spaces or parentheses. |
-| Message          |    string     | The message template for the SMS. Add <otp> as placeholder for the actual OTP to be generated. Max length is 140 characters. |
-| CountryCode  |    string     | ISO 3166 country code for the recipient mobile phone number. If parameter is supplied, then some basic telephone number validation is done. |
+| Message       |    string     | The message template for the SMS. Add <otp> as placeholder for the actual OTP to be generated. Max length is 140 characters. |
+| OtpTimeout    |    integer    | Timeout feature for OTP value in seconds. Default is 3600 seconds(1 hour). Max timeout is 86400 seconds(24 hours). |
+| CountryCode   |    string     | ISO 3166 country code for the recipient mobile phone number. If parameter is supplied, then some basic telephone number validation is done. |
 
 ```vb.net
 Imports FraudLabsPro.FraudLabsPro
@@ -307,6 +308,7 @@ Public Class WebForm4
         SMS_Details.Tel = "+15616288674"
         SMS_Details.CountryCode = "US"
         SMS_Details.Message = "Hi, your OTP is <otp>."
+        SMS_Details.OtpTimeout = 3600
 
         Dim result = Send_SMS_Verification.SendSMS(SMS_Details)
         Response.Write("TransactionID: " + result.TransactionID + "</br>")
@@ -324,7 +326,7 @@ End Class
 
 | Property Name | Property Type | Description                                                  |
 | ------------- | :-----------: | ------------------------------------------------------------ |
-| TransactionID       |    string     | The unique ID that was returned by the Send SMS Verification that triggered the OTP sms. |
+| TransactionID |    string     | The unique ID that was returned by the Send SMS Verification that triggered the OTP sms. |
 | OTP           |    string     | The OTP that was sent to the recipient’s phone. |
 
 ```vb.net

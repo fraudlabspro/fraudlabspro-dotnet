@@ -12,7 +12,8 @@ Namespace FraudLabsPro
                     {"format", para.Format},
                     {"tel", para.Tel},
                     {"country_code", para.CountryCode},
-                    {"mesg", para.Message}
+                    {"mesg", para.Message},
+                    {"otp_timeout", para.OtpTimeout}
                 }
                 Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
                 Dim url As String

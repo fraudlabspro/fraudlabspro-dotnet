@@ -52,6 +52,14 @@
                 messages = value
             End Set
         End Property
+        Public Property OtpTimeout() As Integer
+            Get
+                Return otp_Timeout
+            End Get
+            Set(value As Integer)
+                otp_Timeout = value
+            End Set
+        End Property
         Public Property IDType() As String
             Get
                 Return ID_Type
