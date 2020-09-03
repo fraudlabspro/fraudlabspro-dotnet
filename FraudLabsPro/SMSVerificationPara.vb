@@ -52,6 +52,7 @@
                 messages = value
             End Set
         End Property
+        Private otp_Timeout As Integer
         Public Property OtpTimeout() As Integer
             Get
                 Return otp_Timeout
