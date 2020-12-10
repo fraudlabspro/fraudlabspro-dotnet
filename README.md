@@ -305,7 +305,7 @@ Public Class WebForm4
 
         'Sets SMS details for authentication purpose
         Dim SMS_Details As New SMSVerificationPara
-        SMS_Details.Tel = "+15616288674"
+        SMS_Details.Tel = "+123456789"
         SMS_Details.CountryCode = "US"
         SMS_Details.Message = "Hi, your OTP is <otp>."
         SMS_Details.OtpTimeout = 3600
