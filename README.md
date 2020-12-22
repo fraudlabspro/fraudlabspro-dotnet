@@ -45,7 +45,7 @@ Usage Example
 | Quantity      | integer       | Total quantity of the transaction.                           |
 | Currency      | string        | Currency code used in the transaction. It requires the input of ISO-4217 (3 characters) currency code, e.g. USD for US Dollar. Please refer to [Currency Codes](https://www.fraudlabspro.com/developer/reference/currency-codes) for complete list. |
 | Department    | string        | Merchant identifier to uniquely identify a product or service department. |
-| PaymentMode | string        | Payment mode of transaction. Please see references section.  |
+| PaymentMode | string        | Payment mode of transaction. Valid values: creditcard, affirm, paypal, googlecheckout, bitcoin, cod, moneyorder, wired, bankdeposit, elviauthorized, paymitco, cybersource, sezzle, viabill, amazonpay, pmnts_gateway, giftcard, others. |
 | CardNumber         | string        | Billing credit card number or BIN number.                    |
 | AvsResult           | string        | The single character AVS result returned by the credit card processor. Please refer to [AVS & CVV2 Response Codes](https://www.fraudlabspro.com/developer/reference/avs-and-cvv2-response-codes) for details. |
 | CvvResult            | string        | The single character CVV2 result returned by the credit card processor. Please refer to [AVS & CVV2 Response Codes](https://www.fraudlabspro.com/developer/reference/avs-and-cvv2-response-codes) for details. |
