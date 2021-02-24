@@ -54,6 +54,7 @@ Usage Example
 | ShippingState      | string        | State of shipping address. It supports state codes, e.g. NY - New York, for state or province of United States or Canada. Please refer to [State & Province Codes](https://www.fraudlabspro.com/developer/reference/state-and-province-codes) for complete list. |
 | ShippingZIPCode   | string        | Postal or ZIP code of shipping address.                      |
 | ShippingCountry    | string        | Country of shipping address. It requires the input of ISO-3166 alpha-2 country code, e.g. US for United States. Please refer to [Country Codes](https://www.fraudlabspro.com/developer/reference/country-codes) for complete list. |
+| FLPCheckSum    | string        | Checksum for the device validation. Please visit [Agent Javascript](https://www.fraudlabspro.com/developer/javascript) to learn about the use of this parameter. |
 
 
 ```vb.net

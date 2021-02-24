@@ -75,7 +75,8 @@ Namespace FraudLabsPro
                     {"ship_city", para.ShippingCity},
                     {"ship_state", para.ShippingState},
                     {"ship_zip_code", para.ShippingZIPCode},
-                    {"ship_country", para.ShippingCountry}
+                    {"ship_country", para.ShippingCountry},
+                    {"flp_checksum", para.FLPCheckSum}
                 }
 
                 Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
