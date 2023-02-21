@@ -10,6 +10,8 @@ Namespace FraudLabsPro
                 Dim apiKey As String = FraudLabsProConfig.APIKey
                 Dim data As New Dictionary(Of String, String) From {
                     {"format", para.Format},
+                    {"source", para.Source},
+                    {"source_version", FraudLabsProConfig.Version},
                     {"tel", para.Tel},
                     {"country_code", para.CountryCode},
                     {"mesg", para.Message},

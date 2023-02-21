@@ -4,6 +4,7 @@
         Private transaction_ID As String = ""
         Private OTPCode As String = ""
         Private ID_Type As String = ""
+        Public Source As String = "sdk-net"
         Public ReadOnly Property Format() As String
             Get
                 Return Fmt
