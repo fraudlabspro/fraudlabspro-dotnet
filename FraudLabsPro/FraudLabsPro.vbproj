@@ -3,11 +3,11 @@
   <PropertyGroup>
     <RootNamespace>FraudLabsPro</RootNamespace>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.2.1</Version>
+    <Version>1.2.2</Version>
     <Authors>FraudLabsPro.com</Authors>
     <Description>FraudLabs Pro service screens credit card transactions for online frauds. It increases e-commerce merchant profits by reduces chargeback, improves operation efficiency and provides business intelligence. Merchants can investigate all complex, high-risk orders in a simple way by using merchant administrative interface.</Description>
     <PackageTags>fraud fraudlabspro</PackageTags>
-    <PackageReleaseNotes>Fixed missing FLP checksum parameter.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added source field.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>flp-logo-square-128.png</PackageIcon>
