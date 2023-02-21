@@ -44,7 +44,7 @@ Namespace FraudLabsPro
         'Parameter for Feedback Order
         Private Status As String = ""
         Private Memo As String = ""
-        Public Source As String = "FraudLabsPro .NET SDK"
+        Public Source As String = "sdk-net"
         'Parameter for Get Order Result
         Private ID_Type As String = ""
 
