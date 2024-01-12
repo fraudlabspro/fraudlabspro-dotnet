@@ -59,103 +59,167 @@ Usage Example
 
 ```vb.net
 Imports FraudLabsPro.FraudLabsPro
-Public Class WebForm1
-    Inherits System.Web.UI.Page
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+Imports Newtonsoft.Json
+
+Module Program
+    Sub Main()
         'Configure FraudLabs Pro API KEY
         FraudLabsProConfig.APIKey = "YOUR_API_KEY"
 
-        'Set ScreenOrder parameter
-        Dim ScreenOrderPara As New OrderPara
-
-        'Set order details
-        ScreenOrderPara.IPAddress = "146.112.62.105" ' IP Parameter is mandatory
-        ScreenOrderPara.FirstName = "Hector"
-        ScreenOrderPara.LastName = "Henderson"
-        ScreenOrderPara.EmailAddress = "hh5566@gmail.com"
-
-        'Billing Information
-        ScreenOrderPara.BillAddress = "1766 PowderHouse Road"
-        ScreenOrderPara.BillCity = "West Palm Beach"
-        ScreenOrderPara.BillState = "FL"
-        ScreenOrderPara.BillCountry = "US"
-        ScreenOrderPara.BillZIPCode = "33401"
-        ScreenOrderPara.CardNumber = "4556553172971283"
-        ScreenOrderPara.UserPhone = "561-628-8674"
-        'Order Information
-        ScreenOrderPara.UserOrderID = "67398"
-        ScreenOrderPara.UserOrderMemo = "Online shop"
-        ScreenOrderPara.Amount = "79.89"
-        ScreenOrderPara.Quantity = "1"
-        ScreenOrderPara.Currency = "USD"
-        ScreenOrderPara.PaymentMode = Order.PaymentMethods.CREDIT_CARD
-
-        'Shipping Information
-        ScreenOrderPara.ShippingAddress = "4469 Chestnut Street"
-        ScreenOrderPara.ShippingCity = "Tampa"
-        ScreenOrderPara.ShippingState = "FL"
-        ScreenOrderPara.ShippingZIPCode = "33602"
-        ScreenOrderPara.ShippingCountry = "US"
+        Dim ScreenOrderPara As New OrderPara With {
+            .IPAddress = "146.112.62.105", ' IP Parameter is mandatory
+            .FirstName = "Hector",
+            .LastName = "Henderson",
+            .EmailAddress = "hh5566@gmail.com",
+            .BillAddress = "1766 PowderHouse Road",
+            .BillCity = "West Palm Beach",
+            .BillState = "FL",
+            .BillCountry = "US",
+            .BillZIPCode = "33401",
+            .CardNumber = "4556553172971283",
+            .UserPhone = "561-628-8674",
+            .UserOrderID = "67398",
+            .UserOrderMemo = "Online shop",
+            .Amount = "79.89",
+            .Quantity = "1",
+            .Currency = "USD",
+            .PaymentMode = Order.PaymentMethods.CREDIT_CARD,
+            .ShippingAddress = "4469 Chestnut Street",
+            .ShippingCity = "Tampa",
+            .ShippingState = "FL",
+            .ShippingZIPCode = "33602",
+            .ShippingCountry = "US"
+        }
 
         'ScreenOrder API
         Dim ScreenOrder As New Order
         Dim result = ScreenOrder.ScreenOrder(ScreenOrderPara) ' Send order to FraudLabs Pro
-        Response.Write("IsCountryMatch: " + result.IsCountryMatch + "</br>")
-        Response.Write("IsHighRiskCountry: " + result.IsHighRiskCountry + " </br>")
-        Response.Write("DistanceInKM: " + result.DistanceInKM + "</br>")
-        Response.Write("DistanceInMile: " + result.DistanceInMile + "</br>")
-        Response.Write("IPCountry: " + result.IPCountry + "</br>")
-        Response.Write("IPRegion: " + result.IPRegion + "</br>")
-        Response.Write("IPCity: " + result.IPCity + "</br>")
-        Response.Write("IPContinent: " + result.IPContinent + "</br>")
-        Response.Write("IPLatitude: " + result.IPLatitude + "</br>")
-        Response.Write("IPLongtitude: " + result.IPLongtitude + "</br>")
-        Response.Write("IPTimeZone: " + result.IPTimeZone + "</br>")
-        Response.Write("IPElevation: " + result.IPElevation + "</br>")
-        Response.Write("IPDomain: " + result.IPDomain + "</br>")
-        Response.Write("IPMobileMNC: " + result.IPMobileMNC + "</br>")
-        Response.Write("IPMobileMCC: " + result.IPMobileMCC + "</br>")
-        Response.Write("IPMobileBrand: " + result.IPMobileBrand + "</br>")
-        Response.Write("IPNetSpeed: " + result.IPNetSpeed + "</br>")
-        Response.Write("IPISPName: " + result.IPISPName + "</br>")
-        Response.Write("IPUsageType: " + result.IPUsageType + "</br>")
-        Response.Write("IsFreeEmail: " + result.IsFreeEmail + "</br>")
-        Response.Write("IsDisposableEmail: " + result.IsDisposableEmail + "</br>")
-        Response.Write("IsNewDomainName: " + result.IsNewDomainName + "</br>")
-        Response.Write("IsDomainExists: " + result.IsDomainExists + "</br>")
-        Response.Write("IsProxyIPAddress: " + result.IsProxyIPAddress + "</br>")
-        Response.Write("IsBinFound: " + result.IsBinFound + "</br>")
-        Response.Write("IsBinCountryMatch: " + result.IsBinCountryMatch + "</br>")
-        Response.Write("IsBinNameMatch: " + result.IsBinNameMatch + "</br>")
-        Response.Write("IsBinPhoneMatch: " + result.IsBinPhoneMatch + "</br>")
-        Response.Write("IsBinPrepaid: " + result.IsBinPrepaid + "</br>")
-        Response.Write("IsAddressShipForward: " + result.IsAddressShipForward + "</br>")
-        Response.Write("IsBillShipCityMatch: " + result.IsBillShipCityMatch + "</br>")
-        Response.Write("IsBillShipStateMatch: " + result.IsBillShipStateMatch + "</br>")
-        Response.Write("IsBillShipCountryMatch: " + result.IsBillShipCountryMatch + "</br>")
-        Response.Write("IsBillShipPostalMatch: " + result.IsBillShipPostalMatch + "</br>")
-        Response.Write("IsIPBlacklist: " + result.IsIPBlacklist + "</br>")
-        Response.Write("IsEmailBlacklist: " + result.IsEmailBlacklist + "</br>")
-        Response.Write("IsCreditCardBlacklist: " + result.IsCreditCardBlacklist + "</br>")
-        Response.Write("IsDeviceBlacklist: " + result.IsDeviceBlacklist + "</br>")
-        Response.Write("IsUserBlacklist: " + result.IsUserBlacklist + "</br>")
-        Response.Write("IsShipAddressBlackList: " + result.IsShipAddressBlackList + "</br>")
-        Response.Write("IsPhoneBlacklist: " + result.IsPhoneBlacklist + "</br>")
-        Response.Write("IsHighRiskUsernamePassword: " + result.IsHighRiskUsernamePassword + "</br>")
-        Response.Write("IsMalwareExploit: " + result.IsMalwareExploit + "</br>")
-        Response.Write("IsExportControlledCountry: " + result.IsExportControlledCountry + "</br>")
-        Response.Write("UserOrderID: " + result.UserOrderID + "</br>")
-        Response.Write("UserOrderMemo: " + result.UserOrderMemo + "</br>")
-        Response.Write("FraudLabsProScore: " + result.FraudLabsProScore + "</br>")
-        Response.Write("FraudLabsProDistribution: " + result.FraudLabsProDistribution + "</br>")
-        Response.Write("FraudLabsProStatus: " + result.FraudLabsProStatus + "</br>")
-        Response.Write("FraudLabsProID: " + result.FraudLabsProID + "</br>")
-        Response.Write("FraudLabsProVersion: " + result.FraudLabsProVersion + "</br>")
-        Response.Write("FraudLabsProErrorCode: " + result.FraudLabsProErrorCode + "</br>")
-        Response.Write("FraudLabsProMessage: " + result.FraudLabsProMessage + "</br>")
-        Response.Write("FraudLabsProCredit: " + result.FraudLabsProCredit + "</br>")
+
+        'pretty-print JSON
+        'Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented))
+
+        Dim ipgeolocation = result("ip_geolocation")
+        Dim ipgeolocationfields = New ArrayList From {
+            "ip",
+            "continent",
+            "country_code",
+            "country_name",
+            "region",
+            "city",
+            "latitude",
+            "longitude",
+            "zip_code",
+            "timezone",
+            "isp_name",
+            "domain",
+            "netspeed",
+            "mobile_mnc",
+            "mobile_mcc",
+            "mobile_brand",
+            "elevation",
+            "usage_type",
+            "is_proxy",
+            "is_in_blacklist"
+        }
+
+        For Each field In ipgeolocationfields
+            Console.WriteLine("ip_geolocation." & field.ToString & ": " & ipgeolocation(field).ToString)
+        Next
+
+        Dim billingaddress = result("billing_address")
+        Dim billingaddressfields = New ArrayList From {
+            "ip_distance_in_km",
+            "ip_distance_in_mile",
+            "is_ip_country_match"
+        }
+
+        For Each field In billingaddressfields
+            Console.WriteLine("billing_address." & field.ToString & ": " & billingaddress(field).ToString)
+        Next
+
+        Dim shippingaddress = result("shipping_address")
+        Dim shippingaddressfields = New ArrayList From {
+            "is_address_ship_forward",
+            "is_bill_country_match",
+            "is_bill_state_match",
+            "is_bill_city_match",
+            "is_bill_postcode_match",
+            "is_export_controlled_country",
+            "is_in_blacklist"
+        }
+
+        For Each field In shippingaddressfields
+            Console.WriteLine("shipping_address." & field.ToString & ": " & shippingaddress(field).ToString)
+        Next
+
+        Dim emailaddress = result("email_address")
+        Dim emailaddressfields = New ArrayList From {
+            "is_free",
+            "is_disposable",
+            "is_domain_exist",
+            "is_new_domain_name",
+            "is_in_blacklist"
+        }
+
+        For Each field In emailaddressfields
+            Console.WriteLine("email_address." & field.ToString & ": " & emailaddress(field).ToString)
+        Next
+
+        Dim phonenumber = result("phone_number")
+        Dim phonenumberfields = New ArrayList From {
+            "is_disposable",
+            "is_in_blacklist"
+        }
+
+        For Each field In phonenumberfields
+            Console.WriteLine("phone_number." & field.ToString & ": " & phonenumber(field).ToString)
+        Next
+
+        Dim username = result("username")
+        Dim usernamefields = New ArrayList From {
+            "is_high_risk",
+            "is_in_blacklist"
+        }
+
+        For Each field In usernamefields
+            Console.WriteLine("username." & field.ToString & ": " & username(field).ToString)
+        Next
+
+        Dim creditcard = result("credit_card")
+        Dim creditcardfields = New ArrayList From {
+            "card_brand",
+            "card_type",
+            "card_issuing_bank",
+            "card_issuing_country",
+            "is_prepaid",
+            "is_bin_exist",
+            "is_bin_country_match",
+            "is_in_blacklist"
+        }
+
+        For Each field In creditcardfields
+            Console.WriteLine("credit_card." & field.ToString & ": " & creditcard(field).ToString)
+        Next
+
+        Dim device = result("device")
+        Dim devicefields = New ArrayList From {
+            "is_malware_exploit",
+            "is_in_blacklist"
+        }
+
+        For Each field In devicefields
+            Console.WriteLine("device." & field.ToString & ": " & device(field).ToString)
+        Next
+
+        Console.WriteLine("user_order_id: " & result("user_order_id").ToString)
+        Console.WriteLine("fraudlabspro_id: " & result("fraudlabspro_id").ToString)
+        Console.WriteLine("fraudlabspro_score: " & result("fraudlabspro_score").ToString)
+        Console.WriteLine("fraudlabspro_status: " & result("fraudlabspro_status").ToString)
+        Console.WriteLine("fraudlabspro_rules: " & result("fraudlabspro_rules").ToString)
+        Console.WriteLine("api_version: " & result("api_version").ToString)
+        Console.WriteLine("remaining_credits: " & result("remaining_credits").ToString)
     End Sub
-End Class
+End Module
 ```
 
 
@@ -170,76 +234,145 @@ End Class
 
 ```vb.net
 Imports FraudLabsPro.FraudLabsPro
-Public Class WebForm3
-    Inherits System.Web.UI.Page
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+Imports Newtonsoft.Json
+
+Module Program
+    Sub Main()
         'Configure FraudLabs Pro API KEY
         FraudLabsProConfig.APIKey = "YOUR_API_KEY"
 
-        'Set Get Order Result parameter     
-        Dim GetOrder_Result_Parameter As New OrderPara
-        GetOrder_Result_Parameter.ID = "20180709-NHAEUK"
-        GetOrder_Result_Parameter.IDType = Order.IDTypes.FLP_ID
+        Dim GetOrderPara As New OrderPara With {
+            .ID = "20240112-1EILFK",
+            .IDType = Order.IDTypes.FLP_ID
+        }
 
         'Get Order Result API
         Dim OrderResult As New Order
-        Dim result = OrderResult.GetOrderResult(GetOrder_Result_Parameter) 'Get order result from FraudLabs Pro
-        Response.Write("IsCountryMatch: " + result.IsCountryMatch + "</br>")
-        Response.Write("IsHighRiskCountry: " + result.IsHighRiskCountry + " </br>")
-        Response.Write("DistanceInKM: " + result.DistanceInKM + "</br>")
-        Response.Write("DistanceInMile: " + result.DistanceInMile + "</br>")
-        Response.Write("IPCountry: " + result.IPCountry + "</br>")
-        Response.Write("IPRegion: " + result.IPRegion + "</br>")
-        Response.Write("IPCity: " + result.IPCity + "</br>")
-        Response.Write("IPContinent: " + result.IPContinent + "</br>")
-        Response.Write("IPLatitude: " + result.IPLatitude + "</br>")
-        Response.Write("IPLongtitude: " + result.IPLongtitude + "</br>")
-        Response.Write("IPTimeZone: " + result.IPTimeZone + "</br>")
-        Response.Write("IPElevation: " + result.IPElevation + "</br>")
-        Response.Write("IPDomain: " + result.IPDomain + "</br>")
-        Response.Write("IPMobileMNC: " + result.IPMobileMNC + "</br>")
-        Response.Write("IPMobileMCC: " + result.IPMobileMCC + "</br>")
-        Response.Write("IPMobileBrand: " + result.IPMobileBrand + "</br>")
-        Response.Write("IPNetSpeed: " + result.IPNetSpeed + "</br>")
-        Response.Write("IPISPName: " + result.IPISPName + "</br>")
-        Response.Write("IPUsageType: " + result.IPUsageType + "</br>")
-        Response.Write("IsFreeEmail: " + result.IsFreeEmail + "</br>")
-        Response.Write("IsDisposableEmail: " + result.IsDisposableEmail + "</br>")
-        Response.Write("IsNewDomainName: " + result.IsNewDomainName + "</br>")
-        Response.Write("IsDomainExists: " + result.IsDomainExists + "</br>")
-        Response.Write("IsProxyIPAddress: " + result.IsProxyIPAddress + "</br>")
-        Response.Write("IsBinFound: " + result.IsBinFound + "</br>")
-        Response.Write("IsBinCountryMatch: " + result.IsBinCountryMatch + "</br>")
-        Response.Write("IsBinNameMatch: " + result.IsBinNameMatch + "</br>")
-        Response.Write("IsBinPhoneMatch: " + result.IsBinPhoneMatch + "</br>")
-        Response.Write("IsBinPrepaid: " + result.IsBinPrepaid + "</br>")
-        Response.Write("IsAddressShipForward: " + result.IsAddressShipForward + "</br>")
-        Response.Write("IsBillShipCityMatch: " + result.IsBillShipCityMatch + "</br>")
-        Response.Write("IsBillShipStateMatch: " + result.IsBillShipStateMatch + "</br>")
-        Response.Write("IsBillShipCountryMatch: " + result.IsBillShipCountryMatch + "</br>")
-        Response.Write("IsBillShipPostalMatch: " + result.IsBillShipPostalMatch + "</br>")
-        Response.Write("IsIPBlacklist: " + result.IsIPBlacklist + "</br>")
-        Response.Write("IsEmailBlacklist: " + result.IsEmailBlacklist + "</br>")
-        Response.Write("IsCreditCardBlacklist: " + result.IsCreditCardBlacklist + "</br>")
-        Response.Write("IsDeviceBlacklist: " + result.IsDeviceBlacklist + "</br>")
-        Response.Write("IsUserBlacklist: " + result.IsUserBlacklist + "</br>")
-        Response.Write("IsShipAddressBlackList: " + result.IsShipAddressBlackList + "</br>")
-        Response.Write("IsPhoneBlacklist: " + result.IsPhoneBlacklist + "</br>")
-        Response.Write("IsHighRiskUsernamePassword: " + result.IsHighRiskUsernamePassword + "</br>")
-        Response.Write("IsMalwareExploit: " + result.IsMalwareExploit + "</br>")
-        Response.Write("IsExportControlledCountry: " + result.IsExportControlledCountry + "</br>")
-        Response.Write("UserOrderID: " + result.UserOrderID + "</br>")
-        Response.Write("UserOrderMemo: " + result.UserOrderMemo + "</br>")
-        Response.Write("FraudLabsProScore: " + result.FraudLabsProScore + "</br>")
-        Response.Write("FraudLabsProDistribution: " + result.FraudLabsProDistribution + "</br>")
-        Response.Write("FraudLabsProStatus: " + result.FraudLabsProStatus + "</br>")
-        Response.Write("FraudLabsProID: " + result.FraudLabsProID + "</br>")
-        Response.Write("FraudLabsProVersion: " + result.FraudLabsProVersion + "</br>")
-        Response.Write("FraudLabsProErrorCode: " + result.FraudLabsProErrorCode + "</br>")
-        Response.Write("FraudLabsProMessage: " + result.FraudLabsProMessage + "</br>")
-        Response.Write("FraudLabsProCredit: " + result.FraudLabsProCredit + "</br>")
+        Dim result = OrderResult.GetOrderResult(GetOrderPara) 'Get order result from FraudLabs Pro
+
+        'pretty-print JSON
+        'Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented))
+
+        Dim ipgeolocation = result("ip_geolocation")
+        Dim ipgeolocationfields = New ArrayList From {
+            "ip",
+            "continent",
+            "country_code",
+            "country_name",
+            "region",
+            "city",
+            "latitude",
+            "longitude",
+            "zip_code",
+            "timezone",
+            "isp_name",
+            "domain",
+            "netspeed",
+            "mobile_mnc",
+            "mobile_mcc",
+            "mobile_brand",
+            "elevation",
+            "usage_type",
+            "is_proxy",
+            "is_in_blacklist"
+        }
+
+        For Each field In ipgeolocationfields
+            Console.WriteLine("ip_geolocation." & field.ToString & ": " & ipgeolocation(field).ToString)
+        Next
+
+        Dim billingaddress = result("billing_address")
+        Dim billingaddressfields = New ArrayList From {
+            "ip_distance_in_km",
+            "ip_distance_in_mile",
+            "is_ip_country_match"
+        }
+
+        For Each field In billingaddressfields
+            Console.WriteLine("billing_address." & field.ToString & ": " & billingaddress(field).ToString)
+        Next
+
+        Dim shippingaddress = result("shipping_address")
+        Dim shippingaddressfields = New ArrayList From {
+            "is_address_ship_forward",
+            "is_bill_country_match",
+            "is_bill_state_match",
+            "is_bill_city_match",
+            "is_bill_postcode_match",
+            "is_export_controlled_country",
+            "is_in_blacklist"
+        }
+
+        For Each field In shippingaddressfields
+            Console.WriteLine("shipping_address." & field.ToString & ": " & shippingaddress(field).ToString)
+        Next
+
+        Dim emailaddress = result("email_address")
+        Dim emailaddressfields = New ArrayList From {
+            "is_free",
+            "is_disposable",
+            "is_domain_exist",
+            "is_new_domain_name",
+            "is_in_blacklist"
+        }
+
+        For Each field In emailaddressfields
+            Console.WriteLine("email_address." & field.ToString & ": " & emailaddress(field).ToString)
+        Next
+
+        Dim phonenumber = result("phone_number")
+        Dim phonenumberfields = New ArrayList From {
+            "is_disposable",
+            "is_in_blacklist"
+        }
+
+        For Each field In phonenumberfields
+            Console.WriteLine("phone_number." & field.ToString & ": " & phonenumber(field).ToString)
+        Next
+
+        Dim username = result("username")
+        Dim usernamefields = New ArrayList From {
+            "is_high_risk",
+            "is_in_blacklist"
+        }
+
+        For Each field In usernamefields
+            Console.WriteLine("username." & field.ToString & ": " & username(field).ToString)
+        Next
+
+        Dim creditcard = result("credit_card")
+        Dim creditcardfields = New ArrayList From {
+            "card_brand",
+            "card_type",
+            "card_issuing_bank",
+            "card_issuing_country",
+            "is_prepaid",
+            "is_bin_exist",
+            "is_bin_country_match",
+            "is_in_blacklist"
+        }
+
+        For Each field In creditcardfields
+            Console.WriteLine("credit_card." & field.ToString & ": " & creditcard(field).ToString)
+        Next
+
+        Dim device = result("device")
+        Dim devicefields = New ArrayList From {
+            "is_malware_exploit",
+            "is_in_blacklist"
+        }
+
+        For Each field In devicefields
+            Console.WriteLine("device." & field.ToString & ": " & device(field).ToString)
+        Next
+
+        Console.WriteLine("user_order_id: " & result("user_order_id").ToString)
+        Console.WriteLine("fraudlabspro_id: " & result("fraudlabspro_id").ToString)
+        Console.WriteLine("fraudlabspro_score: " & result("fraudlabspro_score").ToString)
+        Console.WriteLine("fraudlabspro_status: " & result("fraudlabspro_status").ToString)
+        Console.WriteLine("fraudlabspro_rules: " & result("fraudlabspro_rules").ToString)
     End Sub
-End Class
+End Module
 ```
 
 
@@ -255,26 +388,30 @@ End Class
 
 ```vb.net
 Imports FraudLabsPro.FraudLabsPro
-Public Class WebForm2
-    Inherits System.Web.UI.Page
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+Imports Newtonsoft.Json
+
+Module Program
+    Sub Main()
         'Configure FraudLabs Pro API KEY
         FraudLabsProConfig.APIKey = "YOUR_API_KEY"
 
         'Set FeedBack Order parameter
-        Dim Feedback_Order_Parameter As New OrderPara
-        Feedback_Order_Parameter.ID = "20180709-NHAEUK"
-        Feedback_Order_Parameter.Action = Order.Action.APPROVE  ' Please refer to reference section for full list of feedback statuses
-        Feedback_Order_Parameter.Note = "This customer made a valid purchase before."
+        Dim FeedBackPara As New OrderPara With {
+            .ID = "20240112-1EILFK",
+            .Action = Order.Action.APPROVE,  ' Please refer to reference section for full list of feedback statuses
+            .Note = "This customer made a valid purchase before."
+        }
 
         'Feedback Order API
         Dim FeedbackOrder As New Order
-        Dim result = FeedbackOrder.FeedbackOrder(Feedback_Order_Parameter)
-        Response.Write("FraudLabsProErrorCode: " + result.FraudLabsProErrorCode + "</br>")
-        Response.Write("FraudLabsProMessage: " + result.FraudLabsProMessage + "</br>")
-    End Sub
-End Class
+        Dim result = FeedbackOrder.FeedbackOrder(FeedBackPara)
 
+        'pretty-print JSON
+        'Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented))
+
+        Console.WriteLine("fraudlabspro_id: " & result("fraudlabspro_id").ToString)
+    End Sub
+End Module
 ```
 
 
@@ -295,28 +432,32 @@ End Class
 
 ```vb.net
 Imports FraudLabsPro.FraudLabsPro
-Public Class WebForm4
-    Inherits System.Web.UI.Page
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+Imports Newtonsoft.Json
+
+Module Program
+    Sub Main()
         'Configure FraudLabs Pro API KEY
         FraudLabsProConfig.APIKey = "YOUR_API_KEY"
 
         'Send SMS Verification API
-        Dim Send_SMS_Verification As New SMSVerification
+        Dim SendSMS As New SMSVerification
 
         'Sets SMS details for authentication purpose
-        Dim SMS_Details As New SMSVerificationPara
-        SMS_Details.Tel = "+123456789"
-        SMS_Details.CountryCode = "US"
-        SMS_Details.Message = "Hi, your OTP is <otp>."
-        SMS_Details.OtpTimeout = 3600
+        Dim SMSPara As New SMSVerificationPara With {
+            .Tel = "+123456789",
+            .CountryCode = "US",
+            .Message = "Hi, your OTP is <otp>."
+        }
 
-        Dim result = Send_SMS_Verification.SendSMS(SMS_Details)
-        Response.Write("TransactionID: " + result.TransactionID + "</br>")
-        Response.Write("CreditsRemaining: " + result.CreditsRemaining + "</br>")
-        Response.Write("Error: " + result.Error + "</br>")
+        Dim result = SendSMS.SendSMS(SMSPara)
+
+        'pretty-print JSON
+        'Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented))
+
+        Console.WriteLine("tran_id: " & result("tran_id").ToString)
+        Console.WriteLine("credits_remaining: " & result("credits_remaining").ToString)
     End Sub
-End Class
+End Module
 ```
 
 
@@ -332,24 +473,30 @@ End Class
 
 ```vb.net
 Imports FraudLabsPro.FraudLabsPro
-Public Class WebForm5
-    Inherits System.Web.UI.Page
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+Imports Newtonsoft.Json
+
+Module Program
+    Sub Main()
         'Configure FraudLabs Pro API KEY
         FraudLabsProConfig.APIKey = "YOUR_API_KEY"
+
         'Get Verification Result API
-        Dim Get_Verification_Result As New SMSVerification
+        Dim VerifySMS As New SMSVerification
 
         'Sets SMS details for authentication purpose
-        Dim SMS_Details As New SMSVerificationPara
-        SMS_Details.TransactionID = "UNIQUE_TRANS_ID"
-        SMS_Details.OTP = "OTP_RECEIVED"
+        Dim SMSPara As New SMSVerificationPara With {
+            .TransactionID = "UNIQUE_TRANS_ID",
+            .OTP = "OTP_RECEIVED"
+        }
 
-        Dim result = Get_Verification_Result.VerifySMS(SMS_Details)
-         Response.Write("Result: " + result.Result + "</br>")
-        Response.Write("Error: " + result.Error + "</br>")
+        Dim result = VerifySMS.VerifySMS(SMSPara)
+
+        'pretty-print JSON
+        'Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented))
+
+        Console.WriteLine("result: " & result("result").ToString)
     End Sub
-End Class
+End Module
 ```
 
 

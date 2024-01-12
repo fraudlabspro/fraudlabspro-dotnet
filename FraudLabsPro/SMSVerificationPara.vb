@@ -1,6 +1,6 @@
 ﻿Namespace FraudLabsPro
     Public Class SMSVerificationPara
-        Private Fmt As String = "json"
+        Private ReadOnly Fmt As String = "json"
         Private transaction_ID As String = ""
         Private OTPCode As String = ""
         Private ID_Type As String = ""

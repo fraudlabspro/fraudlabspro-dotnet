@@ -1,6 +1,7 @@
 ﻿Imports System.Uri
 Imports System.Security.Cryptography
 Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
 
 Namespace FraudLabsPro
     'FraudLabsPro Order Class
@@ -34,14 +35,13 @@ Namespace FraudLabsPro
         'Screen an order transaction for payment fraud.
         'This REST API will detects all possibles fraud traits based on the input parameters supplied.
         'The more input parameter supplied, the higher accuracy of fraud detection.
-        Public Function ScreenOrder(ByVal para As OrderPara) As OrderResult
-            Try
-                'Configuration Information
-                'Billing Information
-                'Order Information
-                'CreditCard Information
-                'Shipping Information
-                Dim data As New Dictionary(Of String, String) From {
+        Public Function ScreenOrder(para As OrderPara) As JObject
+            'Configuration Information
+            'Billing Information
+            'Order Information
+            'CreditCard Information
+            'Shipping Information
+            Dim data As New Dictionary(Of String, String) From {
                     {"key", FraudLabsProConfig.APIKey},
                     {"format", para.Format},
                     {"source", para.Source},
@@ -79,85 +79,79 @@ Namespace FraudLabsPro
                     {"flp_checksum", para.FLPCheckSum}
                 }
 
-                Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
-                Dim post As String = datastr
-                Dim url As String
-                url = "https://api.fraudlabspro.com/v1/order/screen"
-                Dim request As New Http
-                Dim rawJson As String
-                rawJson = request.PostMethod(url, post)
+            Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
+            Dim post As String = datastr
+            Dim url As String
+            url = "https://api.fraudlabspro.com/v2/order/screen"
+            Dim request As New Http
+            Dim rawJson As String
+            rawJson = request.PostMethod(url, post)
 
-                Dim DeserializedResult As OrderResultObj = JsonConvert.DeserializeObject(Of OrderResultObj)(rawJson)
-                Dim OrderResult As New OrderResult(DeserializedResult)
-                Return OrderResult
-            Catch ex As Exception
-                Throw New Exception
-            End Try
+            Dim OrderResult As JObject = JsonConvert.DeserializeObject(Of JObject)(rawJson)
+            Return OrderResult
         End Function
 
         'Feedback Order API
         'Sends decision back to FraudLabs Pro
-        Public Function FeedbackOrder(ByVal para As OrderPara) As OrderResult
-            Try
-                Dim apikey As String = FraudLabsProConfig.APIKey
-                Dim format As String = para.Format
-                Dim id As String = para.ID
-                Dim action As String = para.Action
-                Dim url As String
-                url = "https://api.fraudlabspro.com/v1/order/feedback?key=" & apikey
-                Dim post As String = "&format=" & System.Web.HttpUtility.UrlEncode(format) & "&id=" & System.Web.HttpUtility.UrlEncode(id) & "&action=" & System.Web.HttpUtility.UrlEncode(action)
+        Public Function FeedbackOrder(para As OrderPara) As JObject
+            Dim data As New Dictionary(Of String, String) From {
+                {"key", FraudLabsProConfig.APIKey},
+                {"format", para.Format},
+                {"source", para.Source},
+                {"source_version", FraudLabsProConfig.Version},
+                {"id", para.ID},
+                {"action", para.Action}
+            }
 
-                Dim request As New Http
-                Dim rawJson As String
-                rawJson = request.PostMethod(url, post)
+            Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
+            Dim post As String = datastr
 
-                Dim DeserializedResult As OrderResultObj = JsonConvert.DeserializeObject(Of OrderResultObj)(rawJson)
-                Dim OrderResult As New OrderResult(DeserializedResult)
-                Return OrderResult
-            Catch ex As Exception
-                Throw New Exception
-            End Try
+            Dim url As String
+            url = "https://api.fraudlabspro.com/v2/order/feedback"
+            Dim request As New Http
+            Dim rawJson As String
+            rawJson = request.PostMethod(url, post)
+
+            Dim OrderResult As JObject = JsonConvert.DeserializeObject(Of JObject)(rawJson)
+            Return OrderResult
         End Function
 
         'GetOrderResult API
         'Function to get transaction result.
-        Public Function GetOrderResult(ByVal para As OrderPara) As OrderResult
-            Try
-                Dim apikey As String = FraudLabsProConfig.APIKey
-                Dim format As String = para.Format
-                Dim id As String = para.ID
-                Dim id_type As String = para.IDType
-                Dim url As String
-                url = "https://api.fraudlabspro.com/v1/order/result?key=" & apikey &
-        "&format=" & System.Web.HttpUtility.UrlEncode(format) &
-        "&id=" & System.Web.HttpUtility.UrlEncode(id) &
-          "&id_type=" & System.Web.HttpUtility.UrlEncode(id_type)
-                Dim request As New Http
-                Dim rawJson As String
-                rawJson = request.GetMethod(url)
+        Public Function GetOrderResult(para As OrderPara) As JObject
+            Dim data As New Dictionary(Of String, String) From {
+                {"key", FraudLabsProConfig.APIKey},
+                {"format", para.Format},
+                {"id", para.ID},
+                {"id_type", para.IDType}
+            }
 
-                Dim DeserializedResult As OrderResultObj = JsonConvert.DeserializeObject(Of OrderResultObj)(rawJson)
-                Dim OrderResult As New OrderResult(DeserializedResult)
-                Return OrderResult
-            Catch ex As Exception
-                Throw New Exception
-            End Try
+            Dim datastr As String = String.Join("&", data.[Select](Function(x) x.Key & "=" & EscapeDataString(x.Value)).ToArray())
+
+            Dim url As String
+            url = "https://api.fraudlabspro.com/v2/order/result?" & datastr
+            Dim request As New Http
+            Dim rawJson As String
+            rawJson = request.GetMethod(url)
+
+            Dim OrderResult As JObject = JsonConvert.DeserializeObject(Of JObject)(rawJson)
+            Return OrderResult
         End Function
-        Private Function Fraudlabspro_Hash(ByVal s As String) As String
-            Dim i As Integer = 0
+        Private Function Fraudlabspro_Hash(s As String) As String
             Dim hash As String = "fraudlabspro_" + s
 
+            Dim i As Integer
             For i = 1 To 65536
-                hash = Me.SHA1("fraudlabspro_" + hash)
+                hash = SHA1("fraudlabspro_" + hash)
             Next
             Return hash
         End Function
-        Private Function SHA1(ByVal s As String) As String
+        Private Function SHA1(s As String) As String
             Dim sha As New SHA1CryptoServiceProvider
             Dim bytes() As Byte
             Dim x As String = ""
 
-            bytes = System.Text.Encoding.ASCII.GetBytes(s)
+            bytes = Text.Encoding.ASCII.GetBytes(s)
             bytes = sha.ComputeHash(bytes)
 
             For Each b As Byte In bytes

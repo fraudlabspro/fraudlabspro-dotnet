@@ -1,9 +1,7 @@
-﻿Imports System.Security.Cryptography
-
-Namespace FraudLabsPro
+﻿Namespace FraudLabsPro
     Public Class OrderPara
         'Common Parameter
-        Private Fmt As String = "json"
+        Private ReadOnly Fmt As String = "json"
         'Parameter for Screen Order
         Private Flp_Check_Sum As String = ""
         Private User_Name As String = ""
