@@ -16,7 +16,12 @@ Below are the features of this VB.NET module:
 
 This module requires API key to function. You may subscribe a free API key at https://www.fraudlabspro.com
 
-** Compatible with .NET Core 2.1+ **
+
+## Requirements
+
+Microsoft .NET 4.72 framework or later.
+Compatible with .NET Core 2.x/3.x SDK.
+Compatible with .NET 5/6/7/8.
 
 
 ## Table of contents
