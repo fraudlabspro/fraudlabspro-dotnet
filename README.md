@@ -27,12 +27,11 @@ To learn more about installation, usage, and code examples, please visit the dev
 | ------------------------------------ |
 | Order.PaymentMethods.CREDIT_CARD      |
 | Order.PaymentMethods.PAYPAL           |
-| Order.PaymentMethods.GOOGLE_CHECKOUT  |
 | Order.PaymentMethods.CASH_ON_DELIVERY |
-| Order.PaymentMethods.MONEY_ORDER      |
-| Order.PaymentMethods.WIRE_TRANSFER    |
 | Order.PaymentMethods.BANK_DEPOSIT     |
-| Order.PaymentMethods.BITCOIN          |
+| Order.PaymentMethods.GIFT_CARD        |
+| Order.PaymentMethods.CRYPTO           |
+| Order.PaymentMethods.WIRE_TRANSFER    |
 | Order.PaymentMethods.OTHERS           |
 
 

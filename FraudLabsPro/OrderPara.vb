@@ -25,6 +25,7 @@
         Private Qty As Integer = 1
         Private Currenc As String = "USD"
         Private Dpartment As String = ""
+        Private Payment_Gateway As String = ""
         Private Payment_Mode As String = ""
         'Credit Card Information
         Private Card_Number As String = ""
@@ -32,6 +33,8 @@
         Private Avs_Result As String = ""
         Private Cvv_Result As String = ""
         'Shipping Information
+        Private Shipping_First_Name As String = ""
+        Private Shipping_Last_Name As String = ""
         Private Shipping_Address As String = ""
         Private Shipping_City As String = ""
         Private Shipping_State As String = ""
@@ -225,6 +228,15 @@
                 Dpartment = value
             End Set
         End Property
+        Public Property PaymentGateway() As String
+            Get
+                Return Payment_Gateway
+            End Get
+            Set(value As String)
+
+                Payment_Gateway = value
+            End Set
+        End Property
         Public Property PaymentMode() As String
             Get
                 Return Payment_Mode
@@ -267,6 +279,25 @@
             Set(value As String)
 
                 Cvv_Result = value
+            End Set
+        End Property
+        Public Property ShippingFirstName() As String
+            Get
+                Return Shipping_First_Name
+            End Get
+            Set(value As String)
+
+                Shipping_First_Name = value
+
+            End Set
+        End Property
+        Public Property ShippingLastName() As String
+            Get
+                Return Shipping_Last_Name
+            End Get
+            Set(value As String)
+                Shipping_Last_Name = value
+
             End Set
         End Property
         Public Property ShippingAddress() As String

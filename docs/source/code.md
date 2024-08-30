@@ -115,6 +115,8 @@ Retrieve geolocation information for an IP address.
 | BillState      | string  | (optional) State of billing address. It supports state codes, e.g. NY (New York), for state or province of United States or Canada.|
 | BillCountry    | string  | (optional) Country of billing address. It requires the input of ISO-3166 alpha-2 country code, e.g. US for United States.|
 | BillZIPCode   | string  | (optional) Postal or ZIP code of billing address. |
+| ShippingLastName       | string  | (optional) Receiver's last name. |
+| ShippingFirstName      | string  | (optional) Receiver's first name. |
 | ShippingAddress       | string  | (optional) Street address of shipping address. |
 | ShippingCity       | string  | (optional) City of shipping address. |
 | ShippingState      | string  | (optional) State of shipping address. It supports state codes, e.g. NY - New York, for state or province of United States or Canada. |
@@ -129,7 +131,8 @@ Retrieve geolocation information for an IP address.
 | Quantity        | integer | (optional) Total quantity of the transaction. |
 | Currency        | string  | (optional) Currency code used in the transaction. It requires the input of<br/> ISO-4217 (3 characters) currency code, e.g. USD for US Dollar. |
 | Department      | string  | (optional) Merchant identifier to uniquely identify a product or service department. |
-| PaymentMode    | string  | (optional) Payment mode of transaction. Valid values: creditcard \| affirm \| paypal \| googlecheckout \| bitcoin \| cod \| moneyorder \| wired \|<br/> bankdeposit \| elviauthorized \| paymitco \| cybersource \| sezzle \| viabill \| amazonpay \| pmnts_gateway \| giftcard \| ewayrapid \| others. |
+| PaymentGateway  | string  | (optional) The name of payment gateway used to capture the payment. |
+| PaymentMode    | string  | (optional) Payment mode of transaction. Valid values: creditcard \| paypal \| cod \| bankdeposit \| giftcard \| crypto \| wired \| others |
 | FLPCheckSum    | string        | Checksum for the device validation. Please visit [Agent Javascript](https://www.fraudlabspro.com/developer/javascript) to learn about the use of this parameter. |
 
 :return: Returns the geolocation information in array. Refer below table for the fields avaliable in the array

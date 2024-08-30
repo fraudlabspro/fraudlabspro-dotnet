@@ -17,12 +17,11 @@ Namespace FraudLabsPro
         Structure PaymentMethods
             Const CREDIT_CARD = "CREDITCARD"
             Const PAYPAL = "PAYPAL"
-            Const GOOGLE_CHECKOUT = "GOOGLECHECKOUT"
             Const CASH_ON_DELIVERY = "COD"
-            Const MONEY_ORDER = "MONEYORDER"
-            Const WIRE_TRANSFER = "WIRED"
             Const BANK_DEPOSIT = "BANKDEPOSIT"
-            Const BITCOIN = "BITCOIN"
+            Const GIFT_CARD = "GIFTCARD"
+            Const CRYPTO = "CRYPTO"
+            Const WIRE_TRANSFER = "WIRED"
             Const OTHERS = "OTHERS"
         End Structure
         'ID Types       
@@ -66,11 +65,14 @@ Namespace FraudLabsPro
                     {"quantity", para.Quantity},
                     {"currency", para.Currency},
                     {"department", para.Department},
+                    {"payment_gateway", para.PaymentGateway},
                     {"payment_mode", para.PaymentMode},
                     {"bin_no", para.BinNo},
                     {"card_hash", Fraudlabspro_Hash(para.CardNumber)},
                     {"avs_result", para.AvsResult},
                     {"cvv_result", para.CvvResult},
+                    {"ship_first_name", para.ShippingFirstName},
+                    {"ship_last_name", para.ShippingLastName},
                     {"ship_addr", para.ShippingAddress},
                     {"ship_city", para.ShippingCity},
                     {"ship_state", para.ShippingState},
