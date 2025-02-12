@@ -40,6 +40,11 @@
         Private Shipping_State As String = ""
         Private Shipping_ZIPCode As String = ""
         Private Shipping_Country As String = ""
+        'Parameter for NopCommerce
+        Private Items_ As String = ""
+        Private Coupon_Code As String = ""
+        Private Coupon_Amount As String = ""
+        Private Coupon_Type As String = ""
         'Common Parameter for following Function
         Private Identity As String = ""
         'Parameter for Feedback Order
@@ -64,7 +69,6 @@
             End Get
             Set(value As String)
                 IP = value
-
             End Set
         End Property
         Public Property FirstName() As String
@@ -72,9 +76,7 @@
                 Return First_Name
             End Get
             Set(value As String)
-
                 First_Name = value
-
             End Set
         End Property
         Public Property LastName() As String
@@ -83,7 +85,6 @@
             End Get
             Set(value As String)
                 Last_Name = value
-
             End Set
         End Property
         Public Property Username() As String
@@ -125,7 +126,6 @@
                 Return User_Phone
             End Get
             Set(value As String)
-
                 User_Phone = value
             End Set
         End Property
@@ -134,7 +134,6 @@
                 Return Bill_Address
             End Get
             Set(value As String)
-
                 Bill_Address = value
             End Set
         End Property
@@ -143,7 +142,6 @@
                 Return Bill_City
             End Get
             Set(value As String)
-
                 Bill_City = value
             End Set
         End Property
@@ -152,7 +150,6 @@
                 Return Bill_State
             End Get
             Set(value As String)
-
                 Bill_State = value
             End Set
         End Property
@@ -161,7 +158,6 @@
                 Return Bill_ZIPCode
             End Get
             Set(value As String)
-
                 Bill_ZIPCode = value
             End Set
         End Property
@@ -170,7 +166,6 @@
                 Return Bill_Country
             End Get
             Set(value As String)
-
                 Bill_Country = value
             End Set
         End Property
@@ -179,7 +174,6 @@
                 Return User_Order_Id
             End Get
             Set(value As String)
-
                 User_Order_Id = value
             End Set
         End Property
@@ -188,7 +182,6 @@
                 Return User_Order_Memo
             End Get
             Set(value As String)
-
                 User_Order_Memo = value
             End Set
         End Property
@@ -197,7 +190,6 @@
                 Return Amnt
             End Get
             Set(value As Decimal)
-
                 Amnt = value
             End Set
         End Property
@@ -206,7 +198,6 @@
                 Return Qty
             End Get
             Set(value As Integer)
-
                 Qty = value
             End Set
         End Property
@@ -215,7 +206,6 @@
                 Return Currenc
             End Get
             Set(value As String)
-
                 Currenc = value
             End Set
         End Property
@@ -224,7 +214,6 @@
                 Return Dpartment
             End Get
             Set(value As String)
-
                 Dpartment = value
             End Set
         End Property
@@ -233,7 +222,6 @@
                 Return Payment_Gateway
             End Get
             Set(value As String)
-
                 Payment_Gateway = value
             End Set
         End Property
@@ -242,7 +230,6 @@
                 Return Payment_Mode
             End Get
             Set(value As String)
-
                 Payment_Mode = value
             End Set
         End Property
@@ -268,7 +255,6 @@
                 Return Avs_Result
             End Get
             Set(value As String)
-
                 Avs_Result = value
             End Set
         End Property
@@ -277,7 +263,6 @@
                 Return Cvv_Result
             End Get
             Set(value As String)
-
                 Cvv_Result = value
             End Set
         End Property
@@ -286,9 +271,7 @@
                 Return Shipping_First_Name
             End Get
             Set(value As String)
-
                 Shipping_First_Name = value
-
             End Set
         End Property
         Public Property ShippingLastName() As String
@@ -297,7 +280,6 @@
             End Get
             Set(value As String)
                 Shipping_Last_Name = value
-
             End Set
         End Property
         Public Property ShippingAddress() As String
@@ -305,7 +287,6 @@
                 Return Shipping_Address
             End Get
             Set(value As String)
-
                 Shipping_Address = value
             End Set
         End Property
@@ -314,7 +295,6 @@
                 Return Shipping_City
             End Get
             Set(value As String)
-
                 Shipping_City = value
             End Set
         End Property
@@ -323,7 +303,6 @@
                 Return Shipping_State
             End Get
             Set(value As String)
-
                 Shipping_State = value
             End Set
         End Property
@@ -332,7 +311,6 @@
                 Return Shipping_ZIPCode
             End Get
             Set(value As String)
-
                 Shipping_ZIPCode = value
             End Set
         End Property
@@ -341,7 +319,6 @@
                 Return Shipping_Country
             End Get
             Set(value As String)
-
                 Shipping_Country = value
             End Set
         End Property
@@ -349,6 +326,39 @@
             Get
                 Return Fmt
             End Get
+        End Property
+        'For NopCommerce
+        Public Property Items() As String
+            Get
+                Return Items_
+            End Get
+            Set(value As String)
+                Items_ = value
+            End Set
+        End Property
+        Public Property CouponCode() As String
+            Get
+                Return Coupon_Code
+            End Get
+            Set(value As String)
+                Coupon_Code = value
+            End Set
+        End Property
+        Public Property CouponAmount() As String
+            Get
+                Return Coupon_Amount
+            End Get
+            Set(value As String)
+                Coupon_Amount = value
+            End Set
+        End Property
+        Public Property CouponType() As String
+            Get
+                Return Coupon_Type
+            End Get
+            Set(value As String)
+                Coupon_Type = value
+            End Set
         End Property
         'Common Parameter GetSet
         Public Property ID() As String

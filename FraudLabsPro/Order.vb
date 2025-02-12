@@ -78,6 +78,10 @@ Namespace FraudLabsPro
                     {"ship_state", para.ShippingState},
                     {"ship_zip_code", para.ShippingZIPCode},
                     {"ship_country", para.ShippingCountry},
+                    {"items", para.Items},
+                    {"coupon_code", para.CouponCode},
+                    {"coupon_amount", para.CouponAmount},
+                    {"coupon_type", para.CouponType},
                     {"flp_checksum", para.FLPCheckSum}
                 }
 

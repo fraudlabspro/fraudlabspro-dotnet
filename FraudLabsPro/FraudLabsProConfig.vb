@@ -1,7 +1,7 @@
 ﻿Namespace FraudLabsPro
     Public Class FraudLabsProConfig
         'Version of library
-        Public Shared Version As String = "2.0.2"
+        Public Shared Version As String = "2.0.3"
 
         'API Key from Merchant
         Public Shared APIKey As String = ""
