@@ -6,11 +6,11 @@
 # -- Project information
 
 project = 'FraudLabs Pro VB.NET'
-copyright = '2024, FraudLabs Pro'
+copyright = '2025, FraudLabs Pro'
 author = 'FraudLabs Pro'
 
-release = '0.1.0'
-version = '0.1.0'
+release = '2.0.4'
+version = '2.0.4'
 
 # -- General configuration
 
@@ -61,4 +61,4 @@ html_favicon = 'images/favicon.ico'
 
 html_title = "FraudLabs Pro VB.NET"
 
-# html_baseurl = "https://ip2proxy-php.readthedocs.io/en/latest/"
+# html_baseurl = "https://fraudlabspro-dotnet.readthedocs.io/en/latest/"

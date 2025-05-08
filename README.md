@@ -17,7 +17,7 @@ Below are the features of this VB.NET module:
 This module requires API key to function. You may subscribe a free API key at https://www.fraudlabspro.com
 
 # Developer Documentation
-To learn more about installation, usage, and code examples, please visit the developer documentation at [https://fraudlabspro-java.readthedocs.io/en/latest/index.html.](https://fraudlabspro-java.readthedocs.io/en/latest/index.html)
+To learn more about installation, usage, and code examples, please visit the developer documentation at [https://fraudlabspro-dotnet.readthedocs.io/en/latest/index.html.](https://fraudlabspro-dotnet.readthedocs.io/en/latest/index.html)
 
 # Reference
 
