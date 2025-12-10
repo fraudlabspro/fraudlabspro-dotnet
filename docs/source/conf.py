@@ -9,8 +9,8 @@ project = 'FraudLabs Pro VB.NET'
 copyright = '2025, FraudLabs Pro'
 author = 'FraudLabs Pro'
 
-release = '2.0.4'
-version = '2.0.4'
+release = '2.0.5'
+version = '2.0.5'
 
 # -- General configuration
 
